@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { ByCityComponent } from './pages/by-city/by-city.component';
 import { ByCountryComponent } from './pages/by-country/by-country.component';
 import { ByRegionComponent } from './pages/by-region/by-region.component';
 import { LookCountryComponent } from './pages/look-country/look-country.component';
+import { RouterModule } from '@angular/router';
+import { CountryTablesComponent } from './components/country-tables/country-tables.component';
+import { CountryInputComponent } from './components/country-input/country-input.component';
+
 
 
 
@@ -12,7 +18,9 @@ import { LookCountryComponent } from './pages/look-country/look-country.componen
     ByCityComponent,
     ByCountryComponent,
     ByRegionComponent,
-    LookCountryComponent],
+    LookCountryComponent,
+    CountryTablesComponent,
+    CountryInputComponent],
   exports: [
     ByCityComponent,
     ByCountryComponent,
@@ -20,7 +28,9 @@ import { LookCountryComponent } from './pages/look-country/look-country.componen
     LookCountryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    RouterModule
   ]
 })
 export class CountryModule { }

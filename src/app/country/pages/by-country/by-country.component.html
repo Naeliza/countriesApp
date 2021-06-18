@@ -1,1 +1,21 @@
-<p>by-country works!</p>
+<h2>By Country</h2>
+<hr>
+
+
+<div class="row">
+  <div class="col">
+    <app-country-input (onEnter)="Search( $event )">
+    </app-country-input>
+  </div>
+</div>
+<hr>
+
+<div *ngIf="theresAnError" class="alert alert-danger">
+  We couldn't find what you were looking form '{{ search }}'
+</div>
+
+<div *ngIf="countries.length > 0" class="row">
+  <div class="col">
+   <app-country-tables [countries] = countries></app-country-tables>
+  </div>
+</div>
