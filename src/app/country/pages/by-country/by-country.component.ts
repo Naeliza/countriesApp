@@ -30,8 +30,12 @@ export class ByCountryComponent {
         this.theresAnError = true;
         this.countries = [];
       });
+  }
 
-
+  suggestions(search: string)
+  {
+    this.theresAnError = false;
+    //CREAR SUGERENCIAS
   }
 
 

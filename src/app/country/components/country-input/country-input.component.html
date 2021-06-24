@@ -3,5 +3,6 @@
     name="search"
      class="form-control" 
     [(ngModel)]="search" 
-    placeholder="Search Country..." />
+    (input)="keyPress()" 
+    placeholder="Search Country..." /> <!-- Si queremos podemos mandar el $event en el (input)-->
   </form>
