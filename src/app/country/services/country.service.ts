@@ -30,7 +30,14 @@ export class CountryService {
     /* .pipe(
       catchError( err => of([]) )
     ); */
+  }
 
+  getCountryByCode(id: string): Observable<Country> {
+    const url = `${this._apiUrl}/alpha/${id}`;
+    return this._http.get<Country>(url);
+    /* .pipe(
+      catchError( err => of([]) )
+    ); */
   }
 
 }
