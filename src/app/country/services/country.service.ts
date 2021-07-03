@@ -17,27 +17,17 @@ export class CountryService {
   {
     const url = `${this._apiUrl}/name/${term}`;
     return this._http.get<Country[]>(url);
-    /* .pipe(
-      catchError( err => of([]) )
-    ); */
-
   }
 
   searchCity(term: string): Observable<Country[]>
   {
     const url = `${this._apiUrl}/capital/${term}`;
     return this._http.get<Country[]>(url);
-    /* .pipe(
-      catchError( err => of([]) )
-    ); */
   }
 
   getCountryByCode(id: string): Observable<Country> {
     const url = `${this._apiUrl}/alpha/${id}`;
     return this._http.get<Country>(url);
-    /* .pipe(
-      catchError( err => of([]) )
-    ); */
   }
 
 }

@@ -14,16 +14,6 @@ export class LookCountryComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private _countryService: CountryService) { }
 
   ngOnInit(): void {
-
-    /* this.activatedRoute.params
-      .subscribe( ({id}) => {
-        console.log( id );
-
-        this._countryService.getCountryByCode(id).subscribe(country =>{
-          console.log(country)
-        });
-      }); */
-
     this.activatedRoute.params
       .pipe(
         switchMap(({ id }) => this._countryService.getCountryByCode(id)))
