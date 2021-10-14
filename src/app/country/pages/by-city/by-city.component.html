@@ -1,15 +1,15 @@
-<h2>By City</h2>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster"> 
+  <h2>By City</h2>
+  <hr>
 
-<div class="row">
-  <div class="col">
-    <app-country-input
-     (onEnter)="Search( $event )"
-     placeholder="Search city...">
-    </app-country-input>
+  <div class="row">
+    <div class="col">
+      <app-country-input (onEnter)="Search( $event )" placeholder="Search city...">
+      </app-country-input>
+    </div>
   </div>
+  <hr>
 </div>
-<hr>
 
 <div *ngIf="theresAnError" class="alert alert-danger">
   We couldn't find what you were looking form '{{ search }}'
@@ -17,6 +17,6 @@
 
 <div *ngIf="countries.length > 0" class="row">
   <div class="col">
-   <app-country-tables [countries] = countries></app-country-tables>
+    <app-country-tables [countries]=countries></app-country-tables>
   </div>
 </div>
