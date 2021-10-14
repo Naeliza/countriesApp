@@ -18,3 +18,9 @@
         </button>
     </div>
 </div>
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+     <app-country-tables [countries] = countries></app-country-tables>
+    </div>
+  </div>

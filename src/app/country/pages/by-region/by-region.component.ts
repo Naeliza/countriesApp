@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Country } from '../../interfaces/country.interface';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-by-region',
@@ -13,8 +15,9 @@ export class ByRegionComponent {
 
   regions: string[] = ['africa', 'americas', 'asia', 'europe', 'oceania'];
   activeRegion: string = '';
+  countries: Country[] = [];
   
-  constructor() { }
+  constructor(private _countryService: CountryService) { }
 
   getClassCSS(region : string): string
   {
@@ -25,9 +28,15 @@ export class ByRegionComponent {
 
   activateRegion(region: string)
   {
-    this.activeRegion = region;
+    if(region === this.activeRegion){return ;}
 
-    //TODO: HACER EL LLAMADO AL SERVICIO
+    this.activeRegion = region;
+    this.countries = [];
+    
+    this._countryService.searchRegion(region)
+    .subscribe(resp => {
+      this.countries = resp;
+    });
   }
 
 }
