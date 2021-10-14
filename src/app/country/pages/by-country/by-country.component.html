@@ -1,18 +1,37 @@
-<div class="animate__animated animate__fadeIn animate__faster"> 
-<h2>By Country</h2>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>By Country</h2>
+  <hr>
 
-<div class="row">
-  <div class="col">
-    <app-country-input
-     (onEnter)="Search( $event )"
-     (onDebounce)="suggestions( $event )"
-     placeholder="Search country...">
-    </app-country-input>
+  <div class="row">
+    <div class="col">
+      <app-country-input 
+      (onEnter)="Search( $event )" 
+      (onDebounce)="suggestions( $event )"
+        placeholder="Search country...">
+      </app-country-input>
+    </div>
   </div>
+
+  <ul *ngIf="showSuggestions" 
+  class="list-group">
+    <li *ngFor="let country of countriesSuggestion" class="list-group-item list-group-item-action">
+      <a class="nav-link"
+      [routerLink]="['/country', country.alpha2Code]">
+      {{country.name}}
+     </a>
+    </li>
+    <li class="list-group-item list-group-item-action"
+      (click)="searchSuggested(search)">
+      <a class="nav-link">
+      Search "{{search}}""
+     </a>
+    </li>
+  </ul>
+
+  <hr>
 </div>
-<hr>
-</div>
+
+
 
 <div *ngIf="theresAnError" class="alert alert-danger">
   We couldn't find what you were looking form '{{ search }}'
@@ -20,6 +39,6 @@
 
 <div *ngIf="countries.length > 0" class="row">
   <div class="col">
-   <app-country-tables [countries] = countries></app-country-tables>
+    <app-country-tables [countries]=countries></app-country-tables>
   </div>
 </div>
